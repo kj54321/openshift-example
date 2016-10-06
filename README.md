@@ -87,6 +87,8 @@ wordpress         <none>                             1073741824    RWO,RWX      
 
 ### PV claim (PVC)
 
+Claim to allocate space for apps and define [accessModes](http://kubernetes.io/docs/user-guide/persistent-volumes/#access-modes-1).
+
 ```
 $ oc create -f pvc-mysql.yaml
 $ oc create -f pvc-wp.yaml
@@ -106,6 +108,7 @@ Please notice that Openshift use deploymentConfig, thanks to [upstream examples]
 ```
 # deploy pods
 $ oc create -f pod-mysql.yaml
+# Comment imagePullPolicy in file if pulled from remote
 $ oc create -f pod-wordpress.yaml
 
 # deploy service
